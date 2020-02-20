@@ -10,6 +10,10 @@
     </li>
 </ul>
 
+<!-- This is one-way data binding from the selectedHero property of the Heroes Component to the hero property of the heroes detail component  -->
+<!-- When a user clicks a hero in the list, selectedHero changes. -->
+<!-- When the selectedHero changes, the property binding updates the hero and the herodetail component to display the new hero -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 <!-- <h2>{{hero.name}}</h2> -->
 <!-- The interpolation uppercase binding can be used in html -->
@@ -26,7 +30,8 @@
     <!-- </label> -->
 <!-- </div> -->
 <!-- the *ngIf here removes the entire div from the DOM if selectedHero is undefined.  -->
-<div *ngIf="selectedHero">
+<!-- 
+    <div *ngIf="selectedHero">
     <h2>{{selectedHero.name | uppercase}}</h2>
     <div><span>id: </span>{{selectedHero.id}}</div>
     <div>
@@ -34,4 +39,5 @@
             <input [(ngModel)]="selectedHero.name" placeholder="name"/>
         </label>
     </div>
-</div>
+</div> 
+-->
