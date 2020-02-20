@@ -35,8 +35,8 @@ export class HeroesComponent implements OnInit {
   }
 
   //
-  getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+  getHeroes(): void{
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 
   // This triggers when the onclick event is fired on one of the list elements

@@ -3,6 +3,10 @@
 //     1. Into HeroService which uses the service to send a message
 //     2. Into MessagesComponent which displays the message and displays the ID when the user clicks a hero
 import { Injectable } from '@angular/core';
+
+// The observable is one of the key classes on the rxjs library. 
+// Angular's HTTP Client methods return RxJS Observables. 
+// Here we are just going to simulate getting data from a server with the RxJS of() function.
 import { Observable, of } from 'rxjs';
 
 import { Hero } from './hero';
