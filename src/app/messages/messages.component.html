@@ -1,0 +1,11 @@
+<!-- Div only displays if there are messages to show -->
+<div *ngIf="messagesService.messages.length">
+
+    <h2>Messages</h2>
+    <!-- the (click) event here binds the button's click to MessagesService.clear() -->
+    <button class="clear"
+            (click)="messagesService.clear()">clear</button>
+    <!-- Message div presents the list of messages as individual divs -->
+    <div *ngFor='let message of messagesService.messages'> {{message}} </div>
+  
+</div>

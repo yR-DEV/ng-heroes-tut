@@ -9,6 +9,8 @@ import { Injectable } from '@angular/core';
 // Here we are just going to simulate getting data from a server with the RxJS of() function.
 import { Observable, of } from 'rxjs';
 
+import { MessagesService } from './messages.service';
+
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 
@@ -17,9 +19,17 @@ import { HEROES } from './mock-heroes';
 })
 export class HeroService {
 
-  constructor() { }
+  // Adding this to the constructor ensures Angular injects the singleton MessagesService into that property
+  // when it creates the HeroService.
+  // This is also called a 'typical Service-In-Service senario' when one service is injected into the other.
+  constructor(private messagesService: MessagesService) { }
 
+  // The of(HEROES) returns an Observable<Hero[]> that emits A SINGLE VALUE
+  // that is the array of mock heroes. 
   getHeroes(): Observable<Hero[]> {
+    // Adding a message when the heroes are fetched. 
+    // TODO: make sure the message sends _after_ fetching the heroes
+    this.messagesService.add('HeroService: fetched heroes');
     return of(HEROES);
   }
 }
