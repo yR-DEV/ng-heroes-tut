@@ -26,10 +26,9 @@ export class HeroService {
 
   // The of(HEROES) returns an Observable<Hero[]> that emits A SINGLE VALUE
   // that is the array of mock heroes. 
-  getHeroes(): Observable<Hero[]> {
-    // Adding a message when the heroes are fetched. 
-    // TODO: make sure the message sends _after_ fetching the heroes
-    this.messagesService.add('HeroService: fetched heroes');
-    return of(HEROES);
+  getHero(id: number): Observable<Hero> {
+    // TODO: send the message _after_ fetching the hero
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(HEROES.find(hero => hero.id === id));
   }
 }

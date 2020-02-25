@@ -6,7 +6,9 @@
     <!-- when the user clicks on the li, angular executes the onSelect(hero) expression; this is an example of ng's event binding syntax -->
     <!-- [class.selected] changes class of the li when hero is the same as selected hero, when these two are different, angular removes the classes -->
     <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
-        <span class="badge">{{hero.id}}</span>{{hero.name}}
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
     </li>
 </ul>
 
