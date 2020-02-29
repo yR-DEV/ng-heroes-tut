@@ -14,7 +14,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 // using in-memory-web-api to simulate getting data from a server
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data-service';
+import { InMemoryDataService }  from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,12 @@ import { InMemoryDataService } from './in-memory-data-service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // The client in memory web api module interceps GTTP requests and returns responses
+    // remove it when a real server is ready to make requests
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]
